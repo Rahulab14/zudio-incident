@@ -120,6 +120,7 @@ ALTER TABLE order_items
 	ADD CONSTRAINT order_items_quantity_check CHECK (quantity > 0);
 ```
 
+
 These constraints move application assumptions into the database so invalid data cannot leak in through a buggy endpoint or manual SQL. In particular, they protect inventory integrity for [Part A Bug 4](../AUDIT.md) and keep user roles bounded so the auth layer cannot silently accept arbitrary values.
 
 ## Why This Holds Up at 1 Lakh Users
